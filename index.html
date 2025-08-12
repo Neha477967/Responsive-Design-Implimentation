@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #8338ec;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonials {
+            padding: 3rem 1rem;
+            background-color: #f8f9fa;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 1rem 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <h2 class="text-xl font-bold">Responsive<span class="text-blue-500">Demo</span></h2>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="hover:text-blue-500">Home</a></li>
+                <li><a href="#" class="hover:text-blue-500">Features</a></li>
+                <li><a href="#" class="hover:text-blue-500">Testimonials</a></li>
+                <li><a href="#" class="hover:text-blue-500">About</a></li>
+                <li><a href="#" class="hover:text-blue-500">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4">Build Responsive Websites with Ease</h1>
+            <p class="mb-8 text-lg">Our platform helps you create beautiful, responsive designs that work on any device, from mobile phones to desktop computers.</p>
+            <div class="grid grid-cols-2 gap-4 md:flex md:gap-6 justify-center">
+                <button class="bg-white text-blue-500 hover:bg-blue-50 px-6 py-2 rounded-full font-medium">Get Started</button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-500 px-6 py-2 rounded-full font-medium">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="mb-4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c51e81ca-25be-408b-8536-6acb36f9ce99.png" alt="Mobile first design approach showing wireframes on multiple device sizes" class="w-full rounded-lg" />
+            </div>
+            <h3 class="font-bold text-xl mb-2">Mobile-First Design</h3>
+            <p>We design for mobile devices first, then scale up for larger screens, ensuring a great experience on any device.</p>
+        </div>
+        <div class="feature-card">
+            <div class="mb-4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/551b3a99-acc1-424d-a341-38ce96fe72dc.png" alt="Responsive grid system demonstrating layout adaptation across screen sizes" class="w-full rounded-lg" />
+            </div>
+            <h3 class="font-bold text-xl mb-2">Flexible Grid System</h3>
+            <p>Our grid system automatically adapts to different screen sizes, rearranging content for optimal viewing.</p>
+        </div>
+        <div class="feature-card">
+            <div class="mb-4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bdd43a25-bb0a-4501-9d7d-980838fde5e7.png" alt="Performance optimization dashboard showing fast load times on mobile and desktop" class="w-full rounded-lg" />
+            </div>
+            <h3 class="font-bold text-xl mb-2">Performance Optimized</h3>
+            <p>Lightweight code and optimized assets ensure fast loading times, even on slower mobile connections.</p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="text-3xl font-bold text-center mb-8">What Our Users Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="flex items-center mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dd41beee-9b0f-4ab1-92b2-d807b07b2872.png" alt="Happy customer Sarah Johnson smiling and giving a thumbs up" class="rounded-full mr-4 w-12 h-12" />
+                    <div>
+                        <h4 class="font-bold">Sarah Johnson</h4>
+                        <p class="text-gray-500 text-sm">Small Business Owner</p>
+                    </div>
+                </div>
+                <p>"The responsive design made my website look great on all my customers' phones. Our mobile conversions increased by 40%!"</p>
+            </div>
+            <div class="testimonial">
+                <div class="flex items-center mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ad424822-3eaa-4702-ae93-d74f3e818a77.png" alt="Tech consultant David Kim with laptop showing responsive website" class="rounded-full mr-4 w-12 h-12" />
+                    <div>
+                        <h4 class="font-bold">David Kim</h4>
+                        <p class="text-gray-500 text-sm">UX Consultant</p>
+                    </div>
+                </div>
+                <p>"As someone who tests websites on hundreds of devices, this is by far the most consistently responsive platform I've seen."</p>
+            </div>
+            <div class="testimonial">
+                <div class="flex items-center mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/014661f5-ac37-4412-a2a1-5937b2569ae8.png" alt="Marketing director Emily Chen pointing at responsive analytics dashboard" class="rounded-full mr-4 w-12 h-12" />
+                    <div>
+                        <h4 class="font-bold">Emily Chen</h4>
+                        <p class="text-gray-500 text-sm">Marketing Director</p>
+                    </div>
+                </div>
+                <p>"Our bounce rate decreased significantly after switching to this responsive design. Highly recommend!"</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2023 Responsive Design Demo. All rights reserved.</p>
+        <div class="flex justify-center gap-4 mt-4">
+            <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+            <a href="#" class="hover:text-blue-300">Terms of Service</a>
+            <a href="#" class="hover:text-blue-300">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('is-active');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('is-active');
+            });
+        });
+        
+        // Dynamic viewport height for mobile browsers
+        function updateVH() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        window.addEventListener('resize', updateVH);
+        updateVH();
+        
+        // Observe screen width changes for advanced responsiveness
+        const screenSizeObserver = new ResizeObserver(entries => {
+            entries.forEach(entry => {
+                const width = entry.contentRect.width;
+                // Additional responsive logic can be added here
+            });
+        });
+        
+        screenSizeObserver.observe(document.body);
+    </script>
+</body>
+</html>
+
